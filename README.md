@@ -11,11 +11,123 @@
 ## Introduction
 
 SFKit is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.
+
 (zh: SFKit是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+```swift
+    @objc func btnClick(_ sender: UIButton) {
+        
+//        SFTools.goAppStore(appId: "")
+        
+        // 文件picker
+//        SFFilePickerVC { url, data in
+//            SFFileBrowser.init(fileUrl: url).show()
+//        }.show()
+            
+        // 地址picker
+//        SFAddressPickerVC.init(.area) { model, model1, model2 in
+//            SFLog("\(model?.name)\(model1?.name)\(model2?.name)")
+//        }.show()
+            
+        // 日期picker
+//        SFDatePickerVC(.dateAndTime, style: .inline) { date in
+//            SFLog(date)
+//        }.show()
+        
+        // 自定义picker
+//        SFPickerVC(["aaa", "bbb", "ccc", "DKA"]) { index, value in
+//            SFLog("\(index) + \(value)")
+//        }.show()
+            
+        // 标签picker
+//        SFTagPickerVC([("aaa", false), ("bbbbbb", false), ("ccccc", false), ("dddeee", true)], maxNum: 1) { list in
+//            SFLog(list)
+//        }.show()
+        
+        // 生成条形码
+//        self.imgView.image = SFQRCodeManager.shared.makeBarCode(content: "1357924680", size: CGSize(width: 200, height: 100))
+        
+        // 生成二维码
+//        self.imgView.image = SFQRCodeManager.shared.makeQRCode(content: "https://www.baidu.com/",
+//                                                               size: CGSize(width: 200, height: 200),
+//                                                               codeColor: .systemTeal,
+//                                                               bgColor: .orange.withAlphaComponent(0.5),
+//                                                               logo: UIImage(systemName: "figure.badminton")?.withTintColor(.red.withAlphaComponent(0.5), renderingMode: .alwaysOriginal),
+//                                                               logoSize: CGSize(width: 50, height: 50))
+        
+        // 扫码
+//        let vc = SFScanVC { result in
+//            SFLog(result?.strScanned)
+//            SFLog(result?.strBarCodeType)
+//        }
+//        self.present(vc, animated: true, completion: nil)
+
+        // 图片预览
+//        let list = [
+//            UIImage(systemName: "figure.run")!,
+//            UIImage(systemName: "figure.american.football")!,
+//            UIImage(systemName: "figure.archery")!,
+//            UIImage(systemName: "figure.badminton")!,
+//            UIImage(systemName: "figure.basketball")!,
+//            UIImage(systemName: "figure.open.water.swim")!
+//        ]
+//        SFImgBrower.browser(list, transView: { [weak self] index in
+//            return index == 0 ? self?.imgView : self?.tapBtn
+//        }).show()
+        
+        // message弹窗
+//        SFHUD.makeMessage(title: "提示", desc: "hahhahahahhaahhahahahahhhahahahahhaha", duration: 5.0, position: .top, btnTitle: "哈马斯") {
+//            SFHUD.dismissMessage()
+//        }
+        
+        // toast弹窗
+//        SFHUD.makeToast("hahhahahahhaahhahahahahhhahahahahhaha", duration: 3.0, position: .center)
+        
+        // Noti: 更新loading&progress属性配置
+//        SFHUD.makeStatus(animationColor: .systemTeal, hudColor: .red, maskColor: .orange, textColor: .brown, textFont: UIFont.systemFont(ofSize: 20.0, weight: .medium))
+        
+        // loading弹窗
+//        SFHUD.makeLoading("loading...", animationType: .horizontalBarScaling, interaction: false)
+//        SF.delay(second: 3) {
+//            SFHUD.dismissLoading()
+//        }
+        
+        // progress弹窗
+//        SFHUD.makeProgress(0.1, title: "下载进度：10%")
+//        SF.delay(second: 0.1) {
+//            SFHUD.makeProgress(0.2, title: "下载进度：20%")
+//            SF.delay(second: 0.1) {
+//                SFHUD.makeProgress(0.3, title: "下载进度：30%")
+//                SF.delay(second: 0.1) {
+//                    SFHUD.makeProgress(0.4, title: "下载进度：40%")
+//                    SF.delay(second: 0.1) {
+//                        SFHUD.makeProgress(0.5, title: "下载进度：50%")
+//                        SF.delay(second: 0.1) {
+//                            SFHUD.makeProgress(0.6, title: "下载进度：60%")
+//                            SF.delay(second: 0.1) {
+//                                SFHUD.makeProgress(0.7, title: "下载进度：70%")
+//                                SF.delay(second: 0.1) {
+//                                    SFHUD.makeProgress(0.8, title: "下载进度：80%")
+//                                    SF.delay(second: 0.1) {
+//                                        SFHUD.makeProgress(0.9, title: "下载进度：90%")
+//                                        SF.delay(second: 0.1) {
+//                                            SFHUD.makeProgress(1.0, title: "下载进度：100%", yep: true)
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
+    }
+```
 
 ## Requirements
 
@@ -37,23 +149,23 @@ If you want to use the latest features of SFKit use normal external source depen
 ```ruby
 pod 'JohnWick', :git => 'https://github.com/Sfh03031/JohnWick.git'
 ```
-
-SFKit has created sub libraries, if you want to use them, simply add the following line to your Podfile: 
-
-```ruby
-pod 'JohnWick/SF'
-pod 'JohnWick/Qrcode'
-pod 'JohnWick/Picker'
-pod 'JohnWick/Brower'
-pod 'JohnWick/Hud'
-pod 'JohnWick/Ex'
-```
-
-also you can use subspecs, simply add the following line to your Podfile:
-
-```swift
-pod 'JohnWick', :subspecs => ['SF', 'Qrcode', 'Picker', 'Brower', 'Hud', 'Ex']
-```
+<!---->
+<!--SFKit has created sub libraries, if you want to use them, simply add the following line to your Podfile: -->
+<!---->
+<!--```ruby-->
+<!--pod 'JohnWick/SF'-->
+<!--pod 'JohnWick/Qrcode'-->
+<!--pod 'JohnWick/Picker'-->
+<!--pod 'JohnWick/Brower'-->
+<!--pod 'JohnWick/Hud'-->
+<!--pod 'JohnWick/Ex'-->
+<!--```-->
+<!---->
+<!--also you can use subspecs, simply add the following line to your Podfile:-->
+<!---->
+<!--```swift-->
+<!--pod 'JohnWick', :subspecs => ['SF', 'Qrcode', 'Picker', 'Brower', 'Hud', 'Ex']-->
+<!--```-->
 
 ## Change log
 
