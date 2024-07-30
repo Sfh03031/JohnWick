@@ -1,0 +1,6 @@
+framework module SFStyleKit {
+  umbrella header "SFStyleKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,91 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Haptica (3.0.3)
+  - JohnWick (0.1.0):
+    - Haptica
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - ProgressHUD (~> 14.1.1)
+    - RxCocoa
+    - RxSwift
+    - SFStyleKit/Core
+    - SnapKit
+    - SwiftDate
+    - SwiftMessages
+    - swiftScan
+    - TagListView
+    - Toast-Swift
+  - JXPhotoBrowser (3.1.5)
+  - Kingfisher (7.12.0)
+  - MJRefresh (3.7.9)
+  - ProgressHUD (14.1.1)
+  - RxCocoa (6.7.1):
+    - RxRelay (= 6.7.1)
+    - RxSwift (= 6.7.1)
+  - RxRelay (6.7.1):
+    - RxSwift (= 6.7.1)
+  - RxSwift (6.7.1)
+  - SFStyleKit/Core (0.1.6)
+  - SnapKit (5.7.1)
+  - SwiftDate (7.0.0)
+  - SwiftMessages (10.0.0):
+    - SwiftMessages/App (= 10.0.0)
+  - SwiftMessages/App (10.0.0)
+  - swiftScan (1.2.1)
+  - TagListView (1.4.1)
+  - Toast-Swift (5.1.1)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase (~> 2.1.4)
+  - JohnWick (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+    - Haptica
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - ProgressHUD
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SFStyleKit
+    - SnapKit
+    - SwiftDate
+    - SwiftMessages
+    - swiftScan
+    - TagListView
+    - Toast-Swift
+
+EXTERNAL SOURCES:
+  JohnWick:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Haptica: 23497230b2d7476621f7860263ae0667279a0a89
+  JohnWick: 5d7058a033caa9b35d6ec5c4ea0b69067fdff961
+  JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
+  RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
+  RxRelay: 4151ba01152436b08271e08410135e099880eae5
+  RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
+  SFStyleKit: d2943f75dc0edfcdbe80b20bedba39148de3fe73
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
+  SwiftMessages: d3540f0f981dfbac25bd2ae9a662effa48f76f92
+  swiftScan: 0849e7d7c1c641384767a573ee8cb90b88d1ddd9
+  TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
+  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
+
+PODFILE CHECKSUM: bf38d3d072673cbd7c585a3e8eee22a43944924a
+
+COCOAPODS: 1.13.0

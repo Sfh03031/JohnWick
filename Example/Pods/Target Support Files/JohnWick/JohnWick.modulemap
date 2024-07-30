@@ -1,0 +1,6 @@
+framework module JohnWick {
+  umbrella header "JohnWick-umbrella.h"
+
+  export *
+  module * { export * }
+}
