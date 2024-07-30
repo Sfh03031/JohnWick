@@ -79,52 +79,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 //            return index == 0 ? self?.imgView : self?.tapBtn
 //        }).show()
         
-        // message弹窗
-//        SFHUD.makeMessage(title: "提示", desc: "hahhahahahhaahhahahahahhhahahahahhaha", duration: 5.0, position: .top, btnTitle: "哈马斯") {
-//            SFHUD.dismissMessage()
-//        }
-        
-        // toast弹窗
-//        SFHUD.makeToast("hahhahahahhaahhahahahahhhahahahahhaha", duration: 3.0, position: .center)
-        
-        // Noti: 更新loading&progress属性配置
-//        SFHUD.makeStatus(animationColor: .systemTeal, hudColor: .red, maskColor: .orange, textColor: .brown, textFont: UIFont.systemFont(ofSize: 20.0, weight: .medium))
-        
-        // loading弹窗
-//        SFHUD.makeLoading("loading...", animationType: .horizontalBarScaling, interaction: false)
-//        SF.delay(second: 3) {
-//            SFHUD.dismissLoading()
-//        }
-        
-        // progress弹窗
-//        SFHUD.makeProgress(0.1, title: "下载进度：10%")
-//        SF.delay(second: 0.1) {
-//            SFHUD.makeProgress(0.2, title: "下载进度：20%")
-//            SF.delay(second: 0.1) {
-//                SFHUD.makeProgress(0.3, title: "下载进度：30%")
-//                SF.delay(second: 0.1) {
-//                    SFHUD.makeProgress(0.4, title: "下载进度：40%")
-//                    SF.delay(second: 0.1) {
-//                        SFHUD.makeProgress(0.5, title: "下载进度：50%")
-//                        SF.delay(second: 0.1) {
-//                            SFHUD.makeProgress(0.6, title: "下载进度：60%")
-//                            SF.delay(second: 0.1) {
-//                                SFHUD.makeProgress(0.7, title: "下载进度：70%")
-//                                SF.delay(second: 0.1) {
-//                                    SFHUD.makeProgress(0.8, title: "下载进度：80%")
-//                                    SF.delay(second: 0.1) {
-//                                        SFHUD.makeProgress(0.9, title: "下载进度：90%")
-//                                        SF.delay(second: 0.1) {
-//                                            SFHUD.makeProgress(1.0, title: "下载进度：100%", yep: true)
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        ...
 
     }
 ```
