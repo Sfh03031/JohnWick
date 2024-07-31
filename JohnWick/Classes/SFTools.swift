@@ -1,6 +1,6 @@
 //
 //  SFTools.swift
-//  SFKit
+//  JohnWick
 //
 //  Created by sfh on 2023/11/20.
 //
@@ -78,9 +78,9 @@ public enum SFTools {
     /// - Parameter url: 协议链接
     /// - Returns: Bool
     public static func openDeepLinkUrl(url: URL) -> Bool {
-        // 协议："SFKit://com.SFKit.www.TargetViewController?key=24680&name=name&act=push"
+        // 协议："JohnWick://com.JohnWick.www.TargetViewController?key=24680&name=name&act=push"
 
-        // "com.SFKit.www.TargetViewController"
+        // "com.JohnWick.www.TargetViewController"
         let host = url.host ?? ""
         // "key=24680&name=name&act=push"
         let query = url.query ?? ""

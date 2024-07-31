@@ -10,9 +10,9 @@
 
 ## Introduction
 
-SFKit is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.
+  JohnWick is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.
 
-(zh: SFKit是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)
+(zh: JohnWick是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)
 
 ## Example
 
@@ -99,13 +99,13 @@ it, simply add the following line to your Podfile:
 pod 'JohnWick'
 ```
 
-If you want to use the latest features of SFKit use normal external source dependencies.
+If you want to use the latest features of JohnWick use normal external source dependencies.
 
 ```ruby
 pod 'JohnWick', :git => 'https://github.com/Sfh03031/JohnWick.git'
 ```
 <!---->
-<!--SFKit has created sub libraries, if you want to use them, simply add the following line to your Podfile: -->
+<!--JohnWick has created sub libraries, if you want to use them, simply add the following line to your Podfile: -->
 <!---->
 <!--```ruby-->
 <!--pod 'JohnWick/SF'-->
@@ -124,10 +124,8 @@ pod 'JohnWick', :git => 'https://github.com/Sfh03031/JohnWick.git'
 
 ## Change log
 
-2024.07.26, 0.1.1
-- Initial version
-
-    (zh: 初始版本)
+2024.07.26, 0.1.0
+- Initial version(zh: 初始版本)
     
 ## Contributing
 Please make an issue or pull request if you have any request.

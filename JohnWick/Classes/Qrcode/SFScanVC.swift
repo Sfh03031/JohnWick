@@ -1,6 +1,6 @@
 //
 //  SFScanVC.swift
-//  SFKit
+//  JohnWick
 //
 //  Created by sfh on 2023/12/2.
 //
