@@ -124,8 +124,11 @@ pod 'JohnWick', :git => 'https://github.com/Sfh03031/JohnWick.git'
 
 ## Change log
 
+2024.08.06, 0.1.1
+- Add decoupling modules and examples.(zh: 增加解耦模块与示例。)
+
 2024.07.26, 0.1.0
-- Initial version(zh: 初始版本)
+- Initial version.(zh: 初始版本。)
     
 ## Contributing
 Please make an issue or pull request if you have any request.
