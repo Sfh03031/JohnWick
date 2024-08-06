@@ -8,6 +8,7 @@
 
 import UIKit
 import JohnWick
+import CTMediator
 
 class ViewController: UIViewController {
     
@@ -174,6 +175,34 @@ class ViewController: UIViewController {
 //                }
 //            }
 //        }
+        
+        // 进程内解耦
+//        let param = ["key": "111", "name": "芭芭雅嘎"] as [AnyHashable: Any]
+//        guard let vc = CTMediator.sharedInstance().toHome(param) else {
+//            SFHUD.makeToast("模块缺失")
+//            return
+//        }
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .coverVertical
+//        self.present(vc, animated: true)
+        
+        // 进程内解耦，带回调
+//        let param = ["key": "111", "name": "芭芭雅嘎"] as [AnyHashable: Any]
+//        guard let vc = CTMediator.sharedInstance().toMine(param, callBack: { key, name in
+//            SFLog("收到回调: key == \(key), name == \(name)")
+//        }) else {
+//            SFHUD.makeToast("模块缺失")
+//            return
+//        }
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.modalTransitionStyle = .coverVertical
+//        self.present(vc, animated: true)
+        
+        // 进程内协议跳转
+        let path = "babayaga://Home/toHome?key=111&name=芭芭雅嘎"
+        SF.tools.openSchemeUrl(path)
+        
+        // 模拟通过协议唤起App并跳转至目标页面：安装app后把协议粘贴到safari浏览器打开
 
     }
     

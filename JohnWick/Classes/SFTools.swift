@@ -27,11 +27,17 @@ public enum SFTools {
             }
         }
     }
+    
+}
 
+// MARK: 通过deeplink协议打开页面，自定义对协议的处理逻辑
+
+public extension SFTools {
+    
     /// 获得请求参数集合
     /// - Parameter query: 参数字符串
     /// - Returns: 参数集合
-    public static func getQueryParams(query: String) -> [String: Any]? {
+    static func getQueryParams(query: String) -> [String: Any]? {
         if let query = query.removingPercentEncoding {
             if query.contains("=") {
                 var res: [String: Any] = [:]
@@ -65,7 +71,7 @@ public enum SFTools {
     /// 通过字符串获取控制器类型
     /// - Parameter vcName: 控制器字符串
     /// - Returns: 控制器类
-    public static func getVCClassFromString(vcName: String) -> UIViewController.Type? {
+    static func getVCClassFromString(vcName: String) -> UIViewController.Type? {
         let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
         if let ctrlClass = NSClassFromString((bundleName ?? "") + "." + vcName) as? UIViewController.Type {
             return ctrlClass
@@ -77,7 +83,7 @@ public enum SFTools {
     /// 通过deeplink协议打开页面
     /// - Parameter url: 协议链接
     /// - Returns: Bool
-    public static func openDeepLinkUrl(url: URL) -> Bool {
+    static func openDeepLinkUrl(url: URL) -> Bool {
         // 协议："JohnWick://com.JohnWick.www.TargetViewController?key=24680&name=name&act=push"
 
         // "com.JohnWick.www.TargetViewController"
@@ -105,6 +111,23 @@ public enum SFTools {
         } else {
             SFLog("协议格式不正确")
             return false
+        }
+    }
+}
+
+// MARK: 通过scheme协议打开页面
+
+public extension SFTools {
+    
+    /// 通过协议打开页面
+    /// - Parameter path: 协议链接
+    static func openSchemeUrl(_ path: String) {
+        // 协议参数value有汉字，做转码
+        let url = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
+        if UIApplication.shared.canOpenURL(URL.init(string: url)!) {
+            UIApplication.shared.open(URL.init(string: url)!)
+        } else {
+            SFHUD.makeToast("无法打开协议链接")
         }
     }
 }

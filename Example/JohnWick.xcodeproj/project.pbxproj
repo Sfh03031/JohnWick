@@ -15,6 +15,11 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7AD6677194DC282244F562F5 /* Pods_JohnWick_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE92EA8E547EFFBA3684425 /* Pods_JohnWick_Example.framework */; };
 		8727DD9EA475229EF4331AF1 /* Pods_JohnWick_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B0A023EE52505BC817673 /* Pods_JohnWick_Tests.framework */; };
+		AE0FC97B2C6200570032E9F2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FC97A2C6200570032E9F2 /* Router.swift */; };
+		AE0FC97F2C620AD30032E9F2 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FC97E2C620AD30032E9F2 /* HomeVC.swift */; };
+		AE0FC9822C620AFD0032E9F2 /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FC9812C620AFD0032E9F2 /* MineVC.swift */; };
+		AE0FC9842C620B600032E9F2 /* Target_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FC9832C620B600032E9F2 /* Target_Home.swift */; };
+		AE0FC9862C620B9E0032E9F2 /* Target_Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0FC9852C620B9E0032E9F2 /* Target_Mine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7ADDDBD8D065A6796F81D837 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		846E3E1709DB8379B03D0CB6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AE0FC97A2C6200570032E9F2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AE0FC97E2C620AD30032E9F2 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		AE0FC9812C620AFD0032E9F2 /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
+		AE0FC9832C620B600032E9F2 /* Target_Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target_Home.swift; sourceTree = "<group>"; };
+		AE0FC9852C620B9E0032E9F2 /* Target_Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target_Mine.swift; sourceTree = "<group>"; };
 		B413F10A71BC9DA8469BBE24 /* Pods-JohnWick_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnWick_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JohnWick_Tests/Pods-JohnWick_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7D9CDC860EFDBB16BDB7C07 /* Pods-JohnWick_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnWick_Example.debug.xcconfig"; path = "Target Support Files/Pods-JohnWick_Example/Pods-JohnWick_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +114,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				AE0FC97A2C6200570032E9F2 /* Router.swift */,
+				AE0FC9802C620AEA0032E9F2 /* Mine */,
+				AE0FC97D2C620ABD0032E9F2 /* Home */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -146,6 +159,24 @@
 				846E3E1709DB8379B03D0CB6 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		AE0FC97D2C620ABD0032E9F2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AE0FC9832C620B600032E9F2 /* Target_Home.swift */,
+				AE0FC97E2C620AD30032E9F2 /* HomeVC.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		AE0FC9802C620AEA0032E9F2 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				AE0FC9852C620B9E0032E9F2 /* Target_Mine.swift */,
+				AE0FC9812C620AFD0032E9F2 /* MineVC.swift */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		C67F3199462399E69818601C /* Pods */ = {
@@ -335,6 +366,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JohnWick_Example/Pods-JohnWick_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CTMediator/CTMediator.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
 				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -352,6 +384,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTMediator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -397,6 +430,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0FC9862C620B9E0032E9F2 /* Target_Mine.swift in Sources */,
+				AE0FC97B2C6200570032E9F2 /* Router.swift in Sources */,
+				AE0FC9842C620B600032E9F2 /* Target_Home.swift in Sources */,
+				AE0FC9822C620AFD0032E9F2 /* MineVC.swift in Sources */,
+				AE0FC97F2C620AD30032E9F2 /* HomeVC.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

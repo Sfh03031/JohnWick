@@ -2,7 +2,7 @@
   "name": "JohnWick",
   "version": "0.1.0",
   "summary": "A library designed to support iOS development by swift.(zh: 一个为iOS开发提供支持的swift库。)",
-  "description": "SFKit is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.\n\n(zh: SFKit是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)",
+  "description": "JohnWick is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.\n\n(zh: JohnWick是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)",
   "homepage": "https://github.com/Sfh03031/JohnWick",
   "license": {
     "type": "MIT",
@@ -69,6 +69,9 @@
 
     ],
     "SnapKit": [
+
+    ],
+    "CTMediator": [
 
     ]
   },

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JohnWick'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A library designed to support iOS development by swift.(zh: 一个为iOS开发提供支持的swift库。)'
   s.description      = <<-DESC
   JohnWick is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.
@@ -43,5 +43,6 @@ Pod::Spec.new do |s|
   s.dependency 'RxCocoa'
   s.dependency 'SwiftDate'
   s.dependency 'SnapKit'
+  s.dependency 'CTMediator'
   
 end

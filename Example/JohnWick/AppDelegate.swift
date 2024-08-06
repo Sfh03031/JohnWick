@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CTMediator
+import JohnWick
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +43,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // 协议来源：本进程或其它进程，通过bundleID来区分
+        if options[.sourceApplication] != nil {
+            if url.scheme == JWScheme {// 自定义协议
+                let bundleId = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String ?? ""
+                if let sourceApp = options[.sourceApplication] as? String, sourceApp == bundleId {
+                    // 本进程内的协议跳转
+                    toSchemePage(url: url.absoluteString)
+                    return true
+                } else {
+                    // 其它进程通过协议拉起本进程内的页面
+                    toSchemePage(url: url.absoluteString)
+                    return false
+                }
+            } else { // 其他协议，支付宝、微信...
+                return false
+            }
+        } else { //浏览器直接过来的
+            if url.scheme == JWScheme {
+                toSchemePage(url: url.absoluteString)
+                return true
+            } else { // 其他协议，支付宝、微信...
+                return false
+            }
+        }
+    }
+    
+    /// 协议跳转页面
+    /// - Parameter url: 协议字符串
+    public func toSchemePage(url: String) {
+        let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
+        if let vc = CTMediator.sharedInstance().openUrl(url, moduleName: bundleName, completion: nil) {
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            SF.visibleVC?.present(vc, animated: true)
+        }
+    }
 }
 
