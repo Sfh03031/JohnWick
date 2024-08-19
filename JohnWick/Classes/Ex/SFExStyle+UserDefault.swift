@@ -27,7 +27,7 @@ public extension SFExStyle where Base: UserDefaults {
     ///   - key: key
     /// - Returns: 对象
     func getByUnarchived<T: NSObject>(type: T.Type, forKey key: String) -> T? where T: NSCoding & NSObjectProtocol {
-        // 指定解档数据所对应的所有数据类型，都则会有警告
+        // 指定解档数据所对应的所有数据类型，否则会有警告
         let res: [AnyClass] = [NSString.self, NSNumber.self, NSArray.self, NSDictionary.self, T.self]
         let decodedObject = base.object(forKey: key) as? Data
         if let decoded = decodedObject {

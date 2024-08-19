@@ -200,7 +200,9 @@ class ViewController: UIViewController {
         
         // 进程内协议跳转
         let path = "babayaga://Home/toHome?key=111&name=芭芭雅嘎"
-        SF.tools.openSchemeUrl(path)
+        // 协议参数value有汉字，做转码
+        let url = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
+        SF.tools.openSchemeUrl(url)
         
         // 模拟通过协议唤起App并跳转至目标页面：安装app后把协议粘贴到safari浏览器打开
 

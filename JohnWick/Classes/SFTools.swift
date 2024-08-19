@@ -122,10 +122,8 @@ public extension SFTools {
     /// 通过协议打开页面
     /// - Parameter path: 协议链接
     static func openSchemeUrl(_ path: String) {
-        // 协议参数value有汉字，做转码
-        let url = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
-        if UIApplication.shared.canOpenURL(URL.init(string: url)!) {
-            UIApplication.shared.open(URL.init(string: url)!)
+        if UIApplication.shared.canOpenURL(URL.init(string: path)!) {
+            UIApplication.shared.open(URL.init(string: path)!)
         } else {
             SFHUD.makeToast("无法打开协议链接")
         }
