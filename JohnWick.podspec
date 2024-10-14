@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JohnWick'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A library designed to support iOS development by swift.(zh: 一个为iOS开发提供支持的swift库。)'
   s.description      = <<-DESC
   JohnWick is a Swift library that provides support for iOS development, including definitions and encapsulation of commonly used methods such as barcode and QR code recognition and generation, picker selectors, prompt pop ups, file and image previewers, web pages with progress, touch feedback, and some extensions.
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.swift_versions   = '5.0'
   s.platform         = :ios, '13.0'
-  s.static_framework = true
+#  s.static_framework = true
     
   s.source_files = 'JohnWick/Classes/**/*'
   s.resource_bundles = {

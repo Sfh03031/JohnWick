@@ -6,7 +6,7 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - Haptica (3.0.3)
-  - JohnWick (0.1.0):
+  - JohnWick (0.1.1):
     - CTMediator
     - Haptica
     - JXPhotoBrowser
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Haptica: 23497230b2d7476621f7860263ae0667279a0a89
-  JohnWick: 0e9e76cb059f4f08b835122f06692efff167c00a
+  JohnWick: 542095427a787255d23d47f2f0c5f49f0417f0b5
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
