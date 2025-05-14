@@ -12,7 +12,7 @@ public protocol SFCodeInputViewDelegate: AnyObject {
 }
 
 @IBDesignable
-public final class SFCodeInputView: UIView, UIKeyInput {
+public final class SFCodeInputView: UIView {
     public weak var delegate: SFCodeInputViewDelegate?
     
     private var lock: Bool = false
@@ -47,10 +47,6 @@ public final class SFCodeInputView: UIView, UIKeyInput {
     
     // MARK: - Properties
     
-    public var hasText: Bool {
-        return currentSlot > 1
-    }
-    
     override public var canBecomeFirstResponder: Bool { true }
     
     public var keyboardType: UIKeyboardType {
@@ -75,48 +71,6 @@ public final class SFCodeInputView: UIView, UIKeyInput {
     override public func layoutSubviews() {
         if hasText { return }
         clearAndGenerate()
-    }
-    
-    // MARK: - (UIKeyInput) Insert/Delete text
-    
-    public func insertText(_ text: String) {
-        if currentSlot > numberOfSlots { return }
-        if lock { return }
-        guard let label = viewWithTag(currentSlot) as? UILabel else { return }
-        
-        currentSlot += 1
-        lock = true
-        
-        UIView.animate(withDuration: 0.05, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
-            label.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-            label.alpha = 0
-        }) { _ in
-            UIView.animate(withDuration: 0.05, delay: 0.0, options: .curveEaseInOut, animations: {
-                label.alpha = 1
-                label.transform = .identity
-                label.text = text
-            }) { _ in
-                self.lock = false
-                self.updateTextStatus()
-            }
-        }
-    }
-    
-    public func deleteBackward() {
-        if currentSlot <= 1 { return }
-        currentSlot -= 1
-        guard let label = viewWithTag(currentSlot) as? UILabel else { return }
-        
-        UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
-            label.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-            label.alpha = 0
-        }) { _ in
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                label.alpha = 1
-                label.transform = .identity
-                label.text = self.placeholder
-            }, completion: nil)
-        }
     }
     
     // MARK: - Slots generator
@@ -191,6 +145,57 @@ public final class SFCodeInputView: UIView, UIKeyInput {
         guard let touch = touches.first else { return }
         if touch.view == self {
             becomeFirstResponder()
+        }
+    }
+}
+
+// MARK:  UIKeyInput
+extension SFCodeInputView: UIKeyInput {
+    
+    /// hasText
+    public var hasText: Bool {
+        return currentSlot > 1
+    }
+    
+    /// insert text
+    public func insertText(_ text: String) {
+        if currentSlot > numberOfSlots { return }
+        if lock { return }
+        guard let label = viewWithTag(currentSlot) as? UILabel else { return }
+        
+        currentSlot += 1
+        lock = true
+        
+        UIView.animate(withDuration: 0.05, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
+            label.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            label.alpha = 0
+        }) { _ in
+            UIView.animate(withDuration: 0.05, delay: 0.0, options: .curveEaseInOut, animations: {
+                label.alpha = 1
+                label.transform = .identity
+                label.text = text
+            }) { _ in
+                self.lock = false
+                self.updateTextStatus()
+            }
+        }
+    }
+    
+    /// deleteBackward
+    public func deleteBackward() {
+        if currentSlot <= 1 { return }
+        currentSlot -= 1
+        guard let label = viewWithTag(currentSlot) as? UILabel else { return }
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
+            label.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            label.alpha = 0
+        }) { _ in
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                label.alpha = 1
+                label.transform = .identity
+                label.text = self.placeholder
+            }, completion: nil)
         }
     }
 }

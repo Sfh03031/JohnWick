@@ -8,6 +8,7 @@
 import Foundation
 
 public enum SF {
+    
     /// WINDOW
     public static var WINDOW: UIWindow? {
         if #available(iOS 13.0, *) {
@@ -53,7 +54,7 @@ public enum SF {
     /// 底部安全区高度
     public static var SafeAreaHeight: CGFloat {
         if #available(iOS 11.0, *) {
-            return WINDOW?.safeAreaInsets.bottom ?? 0.0
+            return WINDOW?.safeAreaInsets.bottom ?? 34.0
         } else {
             return 0.0
         }
@@ -63,9 +64,65 @@ public enum SF {
     public static var TabBarHeight: CGFloat { 49.0 }
     /// 底部高度 = 底部安全区高度 + tabbar高度
     public static var BottomSafeHeight: CGFloat { SafeAreaHeight + TabBarHeight }
+    
 }
 
 public extension SF {
+    
+    /// visibleVC
+    weak static var visibleVC: UIViewController? {
+        weak var vc = WINDOW?.rootViewController
+        while true {
+            if vc?.isKind(of: UITabBarController.self) ?? false {
+                vc = (vc as? UITabBarController)?.selectedViewController
+            } else if vc?.isKind(of: UINavigationController.self) ?? false {
+                vc = (vc as? UINavigationController)?.visibleViewController
+            } else if vc?.presentedViewController != nil {
+                vc = vc?.presentedViewController
+            } else {
+                break
+            }
+        }
+        return vc
+    }
+
+    /// topVC
+    weak static var topVC: UIViewController? {
+        func topVC(_ vc: UIViewController? = nil) -> UIViewController? {
+            let vc = vc ?? WINDOW?.rootViewController
+            if let nv = vc as? UINavigationController, !nv.viewControllers.isEmpty {
+                return topVC(nv.topViewController)
+            }
+            if let tb = vc as? UITabBarController, let select = tb.selectedViewController {
+                return topVC(select)
+            }
+            if let _ = vc?.presentedViewController, let nvc = visibleVC?.navigationController {
+                return topVC(nvc)
+            }
+            return vc
+        }
+        let vc = WINDOW?.rootViewController
+        return topVC(vc)
+    }
+    
+}
+
+public extension SF {
+    
+    /// 主线程执行
+    static func mainThread(_ work: @escaping @convention(block) () -> Void) {
+        DispatchQueue.main.async(execute: work)
+    }
+
+    /// 延迟执行
+    static func delay(second: Double, work: @escaping @convention(block) () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + second, execute: work)
+    }
+    
+}
+
+public extension SF {
+    
     /// 设备
     enum DeviceIdiom {
         // SE
@@ -132,54 +189,5 @@ public extension SF {
             }
         }
     }
-}
-
-public extension SF {
-    /// visibleVC
-    weak static var visibleVC: UIViewController? {
-        weak var vc = WINDOW?.rootViewController
-        while true {
-            if vc?.isKind(of: UITabBarController.self) ?? false {
-                vc = (vc as? UITabBarController)?.selectedViewController
-            } else if vc?.isKind(of: UINavigationController.self) ?? false {
-                vc = (vc as? UINavigationController)?.visibleViewController
-            } else if vc?.presentedViewController != nil {
-                vc = vc?.presentedViewController
-            } else {
-                break
-            }
-        }
-        return vc
-    }
-
-    /// topVC
-    weak static var topVC: UIViewController? {
-        func topVC(_ vc: UIViewController? = nil) -> UIViewController? {
-            let vc = vc ?? WINDOW?.rootViewController
-            if let nv = vc as? UINavigationController, !nv.viewControllers.isEmpty {
-                return topVC(nv.topViewController)
-            }
-            if let tb = vc as? UITabBarController, let select = tb.selectedViewController {
-                return topVC(select)
-            }
-            if let _ = vc?.presentedViewController, let nvc = visibleVC?.navigationController {
-                return topVC(nvc)
-            }
-            return vc
-        }
-        let vc = WINDOW?.rootViewController
-        return topVC(vc)
-    }
-}
-
-public extension SF {
-    /// 主线程执行
-    static func mainThread(_ work: @escaping @convention(block) () -> Void) {
-        DispatchQueue.main.async(execute: work)
-    }
-
-    /// 延迟执行
-    static func delay(second: Double, work: @escaping @convention(block) () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + second, execute: work)
-    }
+    
 }

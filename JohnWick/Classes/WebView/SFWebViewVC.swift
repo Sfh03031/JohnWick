@@ -30,14 +30,8 @@ public class SFWebViewVC: UIViewController {
         view.addSubview(webView)
         
         if navigationController?.viewControllers.count == 1 {
-            if #available(iOS 13.0, *) {
-                if navigationController?.viewControllers.count == 1 {
-                    let img = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 14.0, weight: .medium)))?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
-                    navigationItem.leftBarButtonItem = UIBarButtonItem(image: img, style: .plain, target: self, action: #selector(dismissAction(_:)))
-                }
-            } else {
-                // Fallback on earlier versions
-            }
+            let img = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 14.0, weight: .medium)))?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: img, style: .plain, target: self, action: #selector(dismissAction(_:)))
         }
     }
     

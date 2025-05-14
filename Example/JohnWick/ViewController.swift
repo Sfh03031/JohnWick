@@ -65,8 +65,6 @@ class ViewController: UIViewController {
             SFLog(UserDefaults.standard.sf.getByUnarchived(type: NSDictionary.self, forKey: "defkey"))
         }
         
-        // 开启下拉刷新触觉反馈
-        SFMJRefreshTaptic.shared.enable = true
     }
     
     @objc func btnClick(_ sender: UIButton) {
@@ -85,7 +83,10 @@ class ViewController: UIViewController {
             
         // 日期picker
 //        SFDatePickerVC(.dateAndTime, style: .inline) { date in
-//            SFLog(date)
+//            let formart = DateFormatter()
+//            formart.timeZone = TimeZone.current
+//            formart.dateFormat = "yyyy-MM-dd hh:mm:ss"
+//            SFLog(formart.string(from: date))
 //        }.show()
         
         // 自定义picker
@@ -199,13 +200,17 @@ class ViewController: UIViewController {
 //        self.present(vc, animated: true)
         
         // 进程内协议跳转
-        let path = "babayaga://Home/toHome?key=111&name=芭芭雅嘎"
+//        let path = "babayaga://Home/toHome?key=111&name=芭芭雅嘎"
         // 协议参数value有汉字，做转码
-        let url = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
-        SF.tools.openSchemeUrl(url)
+//        let url = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
+//        SF.tools.openSchemeUrl(url)
         
         // 模拟通过协议唤起App并跳转至目标页面：安装app后把协议粘贴到safari浏览器打开
 
+        let vc = SFWebViewVC()
+        vc.url = URL.init(string: "https://www.baidu.com")
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true)
     }
     
     lazy var codeView: SFCodeInputView = {

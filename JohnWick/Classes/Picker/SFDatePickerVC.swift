@@ -106,6 +106,8 @@ public class SFDatePickerVC: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         contentView.transform = CGAffineTransform(translationX: 0, y: 500)
+        datePicker.timeZone = TimeZone.current
+        datePicker.locale = Locale(identifier: "en_GB")
         datePicker.datePickerMode = mode
         datePicker.preferredDatePickerStyle = style ?? .wheels
         datePicker.date = initDate
