@@ -14,6 +14,8 @@
 
 (zh: JohnWick是一个为iOS开发提供支持的swift库，它包含一些常用方法的定义和封装，比如条形码和二维码的识别与生成、picker选择器、提示弹窗、文件图片预览器、带进度网页、触摸反馈和一些扩展等。)
 
+[DeepWiki](https://deepwiki.com/Sfh03031/JohnWick)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
